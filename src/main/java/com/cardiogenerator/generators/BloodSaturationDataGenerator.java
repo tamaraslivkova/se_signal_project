@@ -1,13 +1,21 @@
-package com.cardio_generator.generators;
+package com.cardiogenerator.generators;
 
 import java.util.Random;
 
-import com.cardio_generator.outputs.OutputStrategy;
-
+import com.cardiogenerator.outputs.OutputStrategy;
+/**
+ * Simulates blood saturation values for patients and outputs generated data 
+ * based on the given output strategy.
+ * 
+ * Keeps the last saturation values for each patient and applies small random fluctuations.
+ */
 public class BloodSaturationDataGenerator implements PatientDataGenerator {
     private static final Random random = new Random();
     private int[] lastSaturationValues;
-
+    /**
+     * Initializes baseline saturation values (between 95 and 100) for each patient.
+     * @param patientCount the number of patients.
+     */
     public BloodSaturationDataGenerator(int patientCount) {
         lastSaturationValues = new int[patientCount + 1];
 
@@ -16,7 +24,13 @@ public class BloodSaturationDataGenerator implements PatientDataGenerator {
             lastSaturationValues[i] = 95 + random.nextInt(6); // Initializes with a value between 95 and 100
         }
     }
-
+    /**
+     * Generates blood saturation values and small fluctuations for a patient and outputs 
+     * data given the output strategy.
+     * 
+     * @param patientId the ID of a patient.
+     * @param outputStrategy the desired output strategy of generated data.
+     */
     @Override
     public void generate(int patientId, OutputStrategy outputStrategy) {
         try {

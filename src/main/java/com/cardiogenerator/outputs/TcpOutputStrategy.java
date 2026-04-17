@@ -1,17 +1,25 @@
-package com.cardio_generator.outputs;
+package com.cardiogenerator.outputs;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executors;
-
+/**
+ * Transmission control protocol based implementation of OutputStrategy.
+ * 
+ * Starts a TCP server, waits for a client connection, creates an output stream and 
+ * sends generated patient health data to the connected client.
+ */
 public class TcpOutputStrategy implements OutputStrategy {
 
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;
-
+    /**
+     * Starts a TCP server on the specified port and waits for client connections.
+     * @param port the port on which the TCP server is started.
+     */
     public TcpOutputStrategy(int port) {
         try {
             serverSocket = new ServerSocket(port);
@@ -31,7 +39,14 @@ public class TcpOutputStrategy implements OutputStrategy {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Outputs patient health data by sending it to a connected client.
+     * 
+     * @param patientId the ID of a patient.
+     * @param timestamp the time at which the data was generated.
+     * @param label the type of measurement.
+     * @param data the generated patient health data.
+     */
     @Override
     public void output(int patientId, long timestamp, String label, String data) {
         if (out != null) {
