@@ -66,3 +66,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Project Members
 - Student ID: `I6428694`
+
+## UML Class Diagrams
+This update adds a set of UML class diagrams modeling the key subsystems of the Cardiovascular Health Monitoring System.
+
+You can find the full diagrams and design documentation in the [uml_models](./uml_models) directory.
+
+### Subsystems Modeled:
+- Alert Generation System
+- Data Storage System
+- Patient Identification system
+- Data Access Layer
