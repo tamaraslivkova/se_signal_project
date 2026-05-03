@@ -1,0 +1,5 @@
+Description:
+
+The com.alerts package has 99% coverage, which means that the alert logic is verified. 
+The com.datamanagement package has 40% coverage, there are many error handling which were not executed. 
+The com.cardiogenerator package has 0% coverage, however it was not the target of these tests.
