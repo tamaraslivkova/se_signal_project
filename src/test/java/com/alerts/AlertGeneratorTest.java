@@ -1,21 +1,18 @@
-package datamanagement;
+package com.alerts;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach; 
-import static org.junit.jupiter.api.Assertions.*; 
 
 import com.datamanagement.DataStorage;
 import com.datamanagement.Patient;
-import com.alerts.AlertGenerator;
-import com.alerts.Alert; 
-import java.util.List;
+
 public class AlertGeneratorTest {
     private DataStorage storage;    
     private AlertGenerator generator;
 
     @BeforeEach
     void setUp() {
-        storage = new DataStorage(); 
+        storage = DataStorage.getInstance(); 
         generator = new AlertGenerator(storage); 
     }
 
